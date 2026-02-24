@@ -15,24 +15,29 @@ public class GameClient {
         this.serverPort = port;
 
         try {
-            socket = new DatagramSocket();
+            socket = new DatagramSocket();  // Socket UDP
             serverAddress = InetAddress.getByName(host);
 
-            new Thread(this::listen).start();
+            new Thread(this::listen).start();    // Hilo de escucha
 
-            send("HELLO");
+            send("HELLO");   // Saludo inicial al servidor
 
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
+    //Usa UDP (DatagramSocket) para comunicación rápida
+    //Corre en un hilo separado para no bloquear el juego
+    //El listener es quien recibe los mensajes del servidor
+
+
 
     private void listen() {
         try {
             byte[] buffer = new byte[1024];
-            //El cliente espera paquetes del server, y los traduce al recibirlos y envia
-            // al NetworkListener para que el juego procese esos paquetes*/
+            //El cliente espera paquetes del server, y los traduce al recibirlos y los
+            // envia al NetworkListener para que el juego procese esos paquetes*/
             while (true) {
 
                 DatagramPacket packet =

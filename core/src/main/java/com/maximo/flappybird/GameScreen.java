@@ -77,6 +77,7 @@ public class GameScreen implements Screen, NetworkListener {
 
 
         //Aca se conecta el cliente al servidor, donde envia el host, el puerto y el listener
+        // Inicialización del cliente
         client = new GameClient("192.168.0.52", 5000, this);
 
     }
@@ -228,16 +229,17 @@ Estado del enemigo
 Eso es sincronización centralizada.*/
     @Override
     public void onMessageReceived(String message) {
+        // Procesa los mensajes del servidor
 
         Gdx.app.postRunnable(() -> {
 
             String[] parts = message.split("\\|");
-
+            // Identificar color del jugador
             if (parts[0].startsWith("YOU")) {
                 String myColor = parts[0].split(":")[1];
                 isPlayerOne = myColor.equals("BLUE");
             }
-
+            // Verificar inicio
             if (parts.length > 1 && parts[1].startsWith("START")) {
 
                 boolean started = parts[1].split(":")[1].equals("1");
@@ -266,7 +268,7 @@ Eso es sincronización centralizada.*/
                 gameStarted = false;
                 return;
             }
-
+                // Actualizar posición del rival
             for (int i = 2; i < parts.length; i++) {
 
                 if (parts[i].startsWith("P")) {
