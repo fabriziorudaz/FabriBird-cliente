@@ -58,8 +58,8 @@ public class GameOverState {
         batch.draw(background, 0, 0);
 
         GlyphLayout layout = new GlyphLayout(font, "Perdiste");
-        GlyphLayout layoutLoseTitle = new GlyphLayout(scoreFont, "Score: " + score);
-        GlyphLayout layoutRestart = new GlyphLayout(restartFont, "Click Para Reiniciar");
+        GlyphLayout layoutLoseTitle = new GlyphLayout(scoreFont, "puntaje: " + score);
+        GlyphLayout layoutRestart = new GlyphLayout(restartFont, "Reinicia haciendo click");
         font.draw(batch,
             layout,
             (Constants.WORLD_WIDTH - layout.width) / 2,

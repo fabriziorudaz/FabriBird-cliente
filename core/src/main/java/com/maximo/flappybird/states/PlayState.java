@@ -170,7 +170,7 @@ public class PlayState {
         batch.draw(ground, 0, 0);
 
         // dibujar puntaje
-        GlyphLayout layout = new GlyphLayout(font, "Score: " + score);
+        GlyphLayout layout = new GlyphLayout(font, "puntaje: " + score);
         font.draw(batch,
             layout,
             (Constants.WORLD_WIDTH - layout.width) / 2,
