@@ -9,7 +9,7 @@ import com.badlogic.gdx.utils.Array;
 import com.maximo.flappybird.utils.Assets;
 import com.maximo.flappybird.utils.Constants;
 
-public class Bird {
+public class Pajaro {
 
     private Vector3 position;
     private Vector3 velocity;
@@ -18,7 +18,7 @@ public class Bird {
     private Animation<TextureRegion> birdAnimation;
     private float stateTime;
 
-    public Bird(int x, int y) {
+    public Pajaro(int x, int y) {
 
         position = new Vector3(x, y, 0);
         velocity = new Vector3(0, 0, 0);

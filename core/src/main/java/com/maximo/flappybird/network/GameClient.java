@@ -31,7 +31,7 @@ public class GameClient {
     private void listen() {
         try {
             byte[] buffer = new byte[1024];
-            //El cliente espera paquetes del server, y al recibirlos los traduce y envia
+            //El cliente espera paquetes del server, y los traduce al recibirlos y envia
             // al NetworkListener para que el juego procese esos paquetes*/
             while (true) {
 

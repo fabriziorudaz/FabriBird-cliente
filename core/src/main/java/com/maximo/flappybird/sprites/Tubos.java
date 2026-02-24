@@ -6,7 +6,7 @@ import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Vector2;
 import com.maximo.flappybird.utils.Constants;
 
-public class Tube {
+public class Tubos {
 
     private Texture texture;
     private Vector2 posTopTube;
@@ -18,7 +18,7 @@ public class Tube {
 
 
 
-    public Tube(float x) {
+    public Tubos(float x) {
 
         texture = new Texture("tube.png");
 

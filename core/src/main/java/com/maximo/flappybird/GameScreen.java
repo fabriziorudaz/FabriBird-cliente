@@ -6,12 +6,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.Array;
 import com.maximo.flappybird.network.GameClient;
 import com.maximo.flappybird.network.NetworkListener;
-import com.maximo.flappybird.network.MessageParser;
-import com.maximo.flappybird.sprites.Tube;
+import com.maximo.flappybird.sprites.Tubos;
 import com.badlogic.gdx.math.Rectangle;
 
 
@@ -46,7 +44,7 @@ public class GameScreen implements Screen, NetworkListener {
     private int score = 0;
     private int otherPlayerScore = 0;
 
-    private Array<Tube> tubes;
+    private Array<Tubos> tubes;
     private static final int TUBE_COUNT = 4;
     private static final float TUBE_SPACING = 300;
     private static final float TUBE_SPEED = 200;
@@ -74,7 +72,7 @@ public class GameScreen implements Screen, NetworkListener {
 
 
         for (int i = 0; i < TUBE_COUNT; i++) {
-            tubes.add(new Tube(600 + i * TUBE_SPACING));
+            tubes.add(new Tubos(600 + i * TUBE_SPACING));
         }
 
 
@@ -122,7 +120,7 @@ public class GameScreen implements Screen, NetworkListener {
         if (estadoJuego == 1) {
             for (int i = 0; i < tubes.size; i++) {
 
-                Tube tube = tubes.get(i);
+                Tubos tube = tubes.get(i);
 
                 // mover tubos
                 tube.getPosTopTube().x -= TUBE_SPEED * delta;
