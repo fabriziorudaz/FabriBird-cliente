@@ -7,8 +7,8 @@ import com.badlogic.gdx.graphics.g2d.GlyphLayout;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 
-import com.maximo.flappybird.sprites.Bird;
-import com.maximo.flappybird.sprites.Tube;
+import com.maximo.flappybird.sprites.Pajaro;
+import com.maximo.flappybird.sprites.Tubo;
 import com.maximo.flappybird.utils.Constants;
 
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ import java.util.HashSet;
 
 public class PlayState {
 
-    private Bird bird;
+    private Pajaro bird;
     private Texture background;
     private Texture ground;
 
-    private ArrayList<Tube> tubes;
-    private HashSet<Tube> scoredTubes;
+    private ArrayList<Tubo> tubes;
+    private HashSet<Tubo> scoredTubes;
 
     private int score;
     private BitmapFont font;
@@ -31,7 +31,7 @@ public class PlayState {
     public PlayState() {
 
         // crear pájaro
-        bird = new Bird(100, 400);
+        bird = new Pajaro(100, 400);
 
         // cargar texturas
         background = new Texture("bg.png");
@@ -48,7 +48,7 @@ public class PlayState {
         // crear tubos iniciales
         for (int i = 0; i < Constants.TUBE_COUNT; i++) {
 
-            tubes.add(new Tube(400 + i * 300));
+            tubes.add(new Tubo(400 + i * 300));
         }
 
         // inicializar puntaje
@@ -72,7 +72,7 @@ public class PlayState {
         bird.update(dt);
 
         // actualizar tubos
-        for (Tube tube : tubes) {
+        for (Tubo tube : tubes) {
 
             tube.getPosTopTube().x -= Constants.TUBE_SPEED * dt;
             tube.getPosBottomTube().x -= Constants.TUBE_SPEED * dt;
@@ -151,7 +151,7 @@ public class PlayState {
 
 
         // dibujar tubos
-        for (Tube tube : tubes) {
+        for (Tubo tube : tubes) {
 
             batch.draw(
                 tube.getTexture(),
@@ -186,7 +186,7 @@ public class PlayState {
         ground.dispose();
         font.dispose();
 
-        for (Tube tube : tubes) {
+        for (Tubo tube : tubes) {
 
             tube.dispose();
         }
